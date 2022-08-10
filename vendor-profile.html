@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="admin.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+     <script src="https://kit.fontawesome.com/75706b52ac.js" crossorigin="anonymous"></script>
+    <title>Vendor Profile</title>
+  </head>
+  <body>
+    <div class="navbar-header">
+        <div class="navbar navbar-expand-sm navbar-dark h-100 py-0" id="firstNav">
+          <!-- Container wrapper -->
+          <div class="container-fluid h-100">
+            <div class="container-fluid w-75 px-0">
+              <span class="navbar-brand text-white"><i class="fa-solid fa-house"></i></span>
+              <span class="navbar-text title text-white">
+                <a href="dashboard.html">PROCUREMENT ADMIN PORTAL</a>
+              </span>
+              <button class="navbar-toggler text-white ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fa-solid fa-bars"></i>
+              </button>
+            </div>
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse w-50 h-100" id="navbarSupportedContent">
+              <!-- Right links -->
+              <ul class="navbar-nav w-100 h-100 mt-lg-0" id="firstList">
+                <li class="nav-item dropdown text-center mx-lg-1 h-100" id="navItem">
+                    <a class="nav-link dropdown-toggle text-white mt-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    </a>
+                    <!-- Dropdown menu -->
+                    <ul class="dropdown-menu dropdown-menu-center border p-1" aria-labelledby="navbarDropdown" style="width:99%">
+                      <li>
+                        <button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#newSupplier">
+                          Create New Supplier
+                        </button>
+                      </li>
+                      <li>
+                        <a href="bid-quotes.html" class="dropdown-item btn" type="button">
+                          Create New RFQ
+                        </a>
+                      </li>
+                    </ul>
+                </li>
+                <li class="nav-item text-center mx-lg-1" id="navItem">
+                    <a href="notification.html" class="nav-link text-white mt-2">
+                    <i class="fas fa-bell fa-lg mb-1"></i>
+                    </a>
+                </li>
+                <li class="nav-item dropdown text-center mx-lg-1 text-white" id="navItem">
+                    <a class="nav-link dropdown-toggle text-white mt-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                    <i class="fa-solid fa-user"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="navbarDropdown" style="width:99%;">
+                    <li>
+                      <a href="admin-information.html" class="dropdown-item">Admin Profile</a>
+                    </li>
+                    <li>
+                      <a href="#newAdminInfo" class="dropdown-item" data-bs-toggle="modal">
+                        Add New Admin User
+                      </a>
+                    </li>
+                    <li>
+                        <a href="login.html" class="dropdown-item">Sign out</a>
+                    </li>
+                    </ul>
+                </li>
+              </ul>
+            </div>
+            <!-- Collapsible wrapper -->
+          </div>
+          <!-- Container wrapper -->
+        </div>
+    </div>
+
+    <div class="secondNav">
+        <div id="container-fluid">
+          <div class="navbar navbar-expand-sm navbar-info m-0 p-0">
+            <button class="navbar-toggler text-white ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#sideNav"
+                aria-controls="sideNav" aria-expanded="false" aria-label="Toggle side navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+          <!-- <div class="container"> -->
+            <div class="collapse navbar-collapse" id="sideNav">
+              <ul class="navbar-nav w-100 mx-3 justify-content-between" id="sideNav">
+                <li class="nav-item">
+                  <a href="index.html" class="nav-link fw-bold">SITE ADMINISTRATION</a>
+                </li>
+                <li class="nav-item">
+                  <a href="vendors.html" class="nav-link fw-bold active">VENDORS</a>
+                </li>
+                <li class="nav-item">
+                  <a href="requisitions.html" class="nav-link fw-bold">PURCHASE REQUISITIONS</a>
+                </li>
+                <li class="nav-item">
+                  <a href="request-for-quotes.html" class="nav-link fw-bold">REQUEST FOR QUOTES</a>
+                </li>
+                <li class="nav-item">
+                  <a href="purchase-order.html" class="nav-link fw-bold">PURCHASE ORDER</a>
+                </li>
+                <li class="nav-item">
+                  <a href="purchase-document.html" class="nav-link fw-bold">PURCHASE DOCUMENT</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="container-fluid main-content">
+      <div class="row">
+            <ul class="nav tabs mt-2 mb-0" id="vendors-tab" role="tablist">
+              <li class="nav-item fw-bold mx-3">
+                <a class="nav-link active" id="suppliers-list" data-bs-toggle="tab" href="#suppliersList" role="tab" aria-controls="suppliers-list" aria-selected="true">
+                  Supplier List
+                </a>
+              </li>
+              <li class="nav-item fw-bold mx-3">
+                <a class="nav-link" id="new-supplier" data-bs-toggle="modal"
+                 href="#newSupplier" role="button" aria-controls="new-supplier" aria-selected="false">
+                  Create New Supplier
+                </a>
+              </li>
+              <li class="nav-item fw-bold mx-3">
+                <a class="nav-link" id="user-supplier" data-bs-toggle="modal" 
+                 href="#userSupplier" role="button" aria-controls="user-supplier" aria-selected="false">
+                  Add User for Supplier
+                </a>
+              </li>
+              <li class="nav-item fw-bold mx-3">
+                <a class="nav-link" id="password-reset" data-bs-toggle="modal"
+                 href="#passwordReset" role="button" aria-controls="password-reset" aria-selected="false">
+                  User Password Reset
+                </a>
+              </li>
+            </ul>
+      </div>
+      <div class="d-sm-flex my-3 h-100">
+      <div class="col-sm-3 col-lg-3 col-xl-3 h-100">
+        <div class="card" id="supplierCard">
+            <div class="card-body users-card">
+              <p class="fw-bold mb-0" style="font-size:18px;">
+                XYZ Corporations
+              </p>
+              <div class="my-4">
+                <h6 class="my-4">Address</h6>
+                <p>God's Grace Plaza, 65 Allen Ave, Allen 101233, Ikeja, Lagos, Nigeria</p>
+                <hr>
+              </div>
+              <div class="my-4">
+                <h6 class="my-4">Email Address</h6>
+                <p>info@codeware.com.ng</p>
+                <hr>
+              </div>
+              <div class="my-4">
+                <h6 class="my-4">Phone Number</h6>
+                <p>08046532561</p>
+              </div>
+              <hr>
+              <div class="my-4">
+                <div class="card" id="rgbButton">
+                  <div class="card-body">
+                    <h5 class="card-title">Users</h5>
+                    <p class="card-text">6</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 mb-5">
+                <div class="card" id="rgbButton">
+                  <div class="card-body">
+                    <h5 class="card-title">User Request</h5>
+                    <p class="card-text">4</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-sm-8 col-lg-8 col-xl-8 h-100">
+        <div class="card">
+          <div class="card-body users-card">
+            <p class="fw-bold mb-2" style="font-size:18px;">Users List</p>
+            <div class="responsive-table">
+                <table class="table users-table table-bordered">
+                  <thead>
+                    <tr class="table-active">
+                      <td scope="col">S/N</td>
+                      <td scope="col">SEX</td>
+                      <td scope="col">FULL NAME</td>
+                      <td scope="col">EMAIL ADDRESS</td>
+                      <td scope="col">USER PERMISSION GROUP</td>
+                      <td scope="col">TELEPHONE</td>
+                      <td scope="col">MANAGER</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="col">1</td>
+                      <td scope="col">M</td>
+                      <td scope="col">Oluwaseyi Yetunde</td>
+                      <td scope="col">Oluwaseyi.Y@gmail.com</td>
+                      <td scope="col">Asst Manager</td>
+                      <td scope="col">08032091372</td>
+                      <td scope="col">Self</td>
+                    </tr>
+                    <tr>
+                      <td scope="col">2</td>
+                      <td scope="col">F</td>
+                      <td scope="col">Oluwatobi Yetunde</td>
+                      <td scope="col">Oluwatobi.Y@gmail.com</td>
+                      <td scope="col">Product Manager</td>
+                      <td scope="col">07034091572</td>
+                      <td scope="col">Self</td>
+                    </tr>
+                    <tr>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                    </tr>
+                    <tr>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                    </tr>
+                    <tr>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                    </tr>
+                    <tr>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                    </tr>
+                    <tr>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+            <div class=" mt-5 mb-3">
+            <p class="fw-bold mb-2" style="font-size:18px;">New User creation request</p>
+            <div class="responsive-table">
+                <table class="table users-table table-bordered">
+                  <thead>
+                    <tr class="table-active">
+                      <td scope="col">S/N</td>
+                      <td scope="col">SEX</td>
+                      <td scope="col">FULL NAME</td>
+                      <td scope="col">EMAIL ADDRESS</td>
+                      <td scope="col">USER PERMISSION GROUP</td>
+                      <td scope="col">TELEPHONE</td>
+                      <td scope="col">JOB TITLE</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="col">1</td>
+                      <td scope="col">M</td>
+                      <td scope="col">Alabi Tobi</td>
+                      <td scope="col">alabitobi@codeware.com</td>
+                      <td scope="col">Team Lead</td>
+                      <td scope="col">08032091372</td>
+                      <td scope="col">Asst Manager</td>
+                    </tr>
+                    <tr>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                    </tr>
+                    <tr>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                    </tr>
+                    <tr>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                    </tr>
+                    <tr>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                      <td scope="col"></td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid my-4">
+        
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="container" id="modals">
+      <div class="modal" id="newSupplier" tabindex="-1" aria-labelledby="new-supplier" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-body supplier-modal">
+              <div class="mx-4">
+              <div class="row mb-3 mt-5">
+                <h5 class="text-center">Add New Supplier</h5>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Company Name</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Company Email Address</label>
+                  <input type="email" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Phone Number</label>
+                  <input type="tel" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">TIN/VAT NUMBER</label>
+                  <input type="text" class="form-control" placeholder="Enter TIN/VAT Number">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-12 mb-3">
+                  <label for="">Address</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Suppliers Bank Country</label>
+                  <select name="" class="form-select">
+                    <option value=""></option>
+                  </select>
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">BANK NAME</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Account Number</label>
+                  <input type="number" class="form-control" placeholder="00******00">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">BIC/Swift Code</label>
+                  <input type="text" class="form-control" placeholder="Enter BIC/Swift Code">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-12 mb-3">
+                  <label for="">Upload relevant documents</label>
+                  <div class="text-center border bg-white">
+                    <input type="file" class="form-control">
+                    <i class="fa-solid fa-cloud-arrow-up mt-3 mb-2"></i>
+                    <p>Drag Files here to attach them or</p>
+                    <button class="shadow-sm mb-2" type="button">ADD FILE</button>
+                  </div>
+                </div>
+              </div>
+              <div class="button">
+                <div class="float-end mt-3 mb-5">
+                  <a href="vendors.html" class="btn btn-sm shadow mx-3" type="button" id="rgbButton">
+                    Submit
+                  </a>
+                  <button class="btn btn-sm shadow" type="button" id="rgbButton" data-bs-toggle="modal" data-bs-target="#userSupplier">
+                    Add User for Supplier
+                  </button>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="userSupplier" tabindex="-1" aria-labelledby="new-supplier" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-body supplier-modal">
+              <div class="mx-4" style="margin-bottom:300px;">
+              <div class="row mt-5 mb-3">
+                <h5 class="text-center">Add User Information</h5>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">First Name</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Last Name</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Email Address</label>
+                  <input type="email" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Phone Number</label>
+                  <input type="tel" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Supplier ID</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Address</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Job Title</label>
+                  <input type="number" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Gender</label>
+                  <select name="" class="form-select">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Default Password</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">User Role</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="button mb-5">
+                <div class="float-end mt-3 mb-5">
+                  <button class="btn btn-sm shadow mx-3" type="button" id="rgbButton" data-bs-toggle="modal" data-bs-target="#successModal">
+                    Submit
+                  </button>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="newAdminInfo" tabindex="-1" aria-labelledby="new-supplier" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-body supplier-modal">
+              <div class="mx-4" style="margin-bottom:300px;">
+              <div class="row mt-5 mb-3">
+                <h5 class="text-center">Add Admin Information</h5>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">First Name</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Last Name</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Email Address</label>
+                  <input type="email" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Phone Number</label>
+                  <input type="tel" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Company ID</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Address</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Job Title</label>
+                  <input type="number" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Gender</label>
+                  <select name="" class="form-select">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Default Password</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">User Role</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="button mb-5">
+                <div class="float-end mt-3 mb-5">
+                  <button class="btn btn-sm shadow mx-3" type="button" id="rgbButton" data-bs-toggle="modal" data-bs-target="#successAdminModal">
+                    Submit
+                  </button>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="passwordReset" tabindex="-1" aria-labelledby="password-reset" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" style="width:400px;">
+            <div class="modal-content">
+              <div class="modal-body password-modal">
+                <div class="my-4 mx-2">
+                <h5 class="text-center mb-3">User Password Change</h5>
+                <form action="" class="">
+                  <div class="form-row d-flex mb-2">
+                    <label for="" class="col-sm-6">Email Address:</label>
+                    <input type="email" class="col-sm-6">
+                  </div>
+                  <div class="form-row d-flex mb-2">
+                    <label for="" class="col-sm-6">New Default Password:</label>
+                    <input type="text" class="col-sm-6">
+                  </div>
+                  <div class="form-row d-flex mb-2">
+                    <label for="" class="col-sm-6">Confirm New Password:</label>
+                    <input type="password" class="col-sm-6">
+                  </div>
+                  <div class="text-center mt-3">
+                    <button class="btn btn-sm shadow" id="rgbButton" type="button">Submit</button>
+                  </div>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="modal" id="successModal" tabindex="-1" aria-labelledby="success" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered success-modal" style="width:300px">
+            <div class="modal-content">
+              <div class="modal-body text-center">
+                <img src="assets/img/icons8-checkmark-48-green.png" alt="">
+                <p class="check fw-bold">Congratulations</p>
+                <p class="fw-bold">Supplier Profile Created</p>
+                <a href="vendors.html" class="btn btn-sm" id="rgbButton">
+                  Continue
+                </a>
+              </div>
+            </div>
+          </div>
+      </div>
+  
+      <div class="modal" id="successAdminModal" tabindex="-1" aria-labelledby="success" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered success-modal" style="width:300px">
+          <div class="modal-content">
+          <div class="modal-body text-center">
+              <img src="assets/img/icons8-checkmark-48-green.png" alt="">
+              <p class="check fw-bold">Congratulations</p>
+              <p class="fw-bold">Admin Profile Created</p>
+              <a href="admin-information.html" class="btn btn-sm" id="rgbButton">
+                Continue
+              </a>
+          </div>
+          </div>
+      </div>
+      </div>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0"></script>
+ </body>
+</html>

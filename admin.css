@@ -1,0 +1,321 @@
+html, body {
+  font-size: 16px;
+}
+.navbar-header {
+  height: 60px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1002;
+}
+.navbar-header .nav-item i {
+  font-size: 18px;
+}
+.navbar-dark {
+  background-color: rgb(9, 168, 197);
+  color: #fff;
+}
+.navbar-brand, .title {
+  font-size: 20px;
+}
+.navbar-text a {
+  text-decoration: none;
+}
+#navItem {
+  border-left: 1px solid #fff;
+  width: 33.33%
+}
+.secondNav {
+  margin-top: 60px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+#sideNav {
+  background-color: rgb(218, 218, 218);
+}
+#sideNav a.nav-link {
+  font-size: 15px;
+  color: #000;
+}
+#sideNav a.active {
+  color: rgb(9, 168, 197);
+  border-bottom: 4px solid rgb(9, 168, 197);
+}
+.main-content {
+  padding-top: 100px;
+  overflow-x: hidden;
+  font-size: 16px;
+}
+a {
+  text-decoration: none;
+}
+.tab-content {
+  font-size: 16px;
+}
+.tabs a {
+  color: #000;
+}
+.tabs a.active {
+  color: rgb(9, 168, 197);
+  border-bottom: 4px solid rgb(9, 168, 197);
+}
+.tabs a:hover {
+  color: #000;
+}
+.filter {
+  font-size: 18px;
+  font-weight: 600;
+}
+.table {
+  font-size: 14px;
+}
+.table tbody td {
+  font-size: 12px;
+}
+#whiteButton {
+  background-color: #fff;
+  color: rgb(9, 168, 197);
+  border: 1px solid rgb(9, 168, 197);
+}
+#whiteButton:hover {
+  background-color: rgb(9, 168, 197);
+  color: white; 
+}
+.modal {
+  font-size: 16px;
+}
+.supplier-modal {
+  background-color: #f3f3f3;
+}
+::placeholder {
+  font-size: 12px;
+  color: #f3f3f3;
+}
+#rgbButton {
+  background-color: rgb(9, 168, 197);
+  color: white; 
+}
+#rgbButton:hover {
+  background-color: #fff;
+  color: rgb(9, 168, 197);
+  border: 1px solid rgb(9, 168, 197);
+}
+.success-modal {
+  width: 400px;
+}
+.check {
+  color: #04ba16;
+  font-size: 18px;
+}
+.modal-footer {
+  background-color: rgb(218, 218, 218);
+  border-top: 1px dashed #000;
+}
+.password-modal {
+  background-color: #f8f8f8;
+  font-size: 15px;
+}
+.password-modal input {
+  border-radius: 3px;
+}
+#collapseButton {
+  background-color:rgb(9, 168, 197);
+  color: #fff;
+  font-weight: 600;
+}
+#generalQuote, #rfqLine {
+  background-color: #f8f8f8;
+}
+.rfq-table, .rfq-desc {
+  background-color: #fff;
+}
+.rfq-table span {
+   font-weight: 400;
+}
+#invoiceCard {
+    background: #718a8b;
+    color: white;
+}
+.responsive-table a {
+  text-decoration: none;
+  color: #000;
+}
+p, span, li {
+font-size: 14px;
+}
+.detail {
+font-size: 12px;
+}
+#detailCard {
+color: dark;
+}
+#purchaseID {
+background: #d3e0b5;
+}
+.ratings {
+  font-size: 25px;
+}
+.text-area {
+  background-color: rgb(218, 218, 218);
+}
+.action {
+  margin-left: 25px;
+}
+.admin-profile {
+  background-color: #f8f8f8;
+}
+.admin-profile .form-control {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+}
+#nominatedVendor {
+  background-color: rgb(218, 218, 218);
+}
+.header .head {
+  font-size: 20px;
+}
+.header p span {
+  font-size: 18px;
+  font-weight: 800;
+}
+#uploads {
+  background-color: #dadada;
+}
+.upload-area {
+  background-color: #fff;
+}
+.upload-area .details {
+  margin-left: 15px;
+}
+.upload-area i {
+  font-size: 30px;
+  color: rgb(9, 168, 197);
+}
+.upload-area .details p {
+  font-size: 18px;
+}
+.upload-area p span {
+  color: rgb(9, 168, 197);
+}
+.users-card {
+  background: #dadada;
+}
+.users-card table {
+  background-color: #fff;
+}
+#supplierCard {
+  margin-right: 20px;
+}
+#signinForm {
+  padding-right:60px;
+}
+#welcomeCol {
+    background: rgb(9, 168, 197);
+}
+#imgCol {
+    flex-direction: column;
+}
+.img-fluid {
+    height: 300px;
+    width: 300px;
+    display: block;
+}
+#formCol {
+  padding-right: 60px;
+  flex-direction: column;
+}
+#colText {
+    margin: auto;
+}
+.col-text {
+    margin: auto;
+    display: block;
+}
+form a {
+    text-decoration: none;
+    font-size: 12px;
+}
+a:hover {
+    text-decoration: none;
+}
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: auto;
+    content: "";
+}
+#col {
+  padding-left: 0;
+  padding-right: 20px;
+}
+#cardOne {
+  background-color: #b5e5ee;
+}
+#cardTwo {
+  background-color: #fbe6ba;
+}
+#cardThree {
+  background-color: #cef2d1;
+}
+#cardFour {
+  background-color: #f9c5c1;
+}
+table.activities thead td, table.activities p.service {
+  font-size: 16px;
+}
+#chartBox {
+  height: 200px;
+
+}
+.pie {
+    flex-direction: column;
+}
+.chartBox {
+    width: 200px;
+    justify-content: center;
+    margin: 8px;
+}
+.modal .supplier-modal label, .modal .supplier-modal p {
+  font-size: 14px;
+  font-weight: 500;
+}
+.modal .supplier-modal i {
+  font-size: 30px;
+}
+.row .vendor-close {
+  margin-top: 200px;
+}
+.upload-area-list:hover {
+  background-color: #f8f8f8;
+}
+.upload-area-list i {
+  font-size: 25px;
+}
+.upload-area-list .details {
+  margin-left: 10px;
+  flex-direction: column;
+}
+.upload-area-list .details span {
+  font-size: 12px;
+  color:rgb(9, 168, 197);
+}
+.upload-area-list .details span.time {
+  color: #000;
+  line-height: 8px;
+}
+.upload-card {
+  margin-left: 25px;
+}
+.upload-card .card-body {
+  background: #dadada;
+}
+.upload-card .list-title {
+  font-size: 20px;
+}

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="admin.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+     <script src="https://kit.fontawesome.com/75706b52ac.js" crossorigin="anonymous"></script>
+    <title>Vendor Bid Details</title>
+  </head>
+  <body>
+    <div class="navbar-header">
+        <div class="navbar navbar-expand-sm navbar-dark h-100 py-0" id="firstNav">
+          <!-- Container wrapper -->
+          <div class="container-fluid h-100">
+            <div class="container-fluid w-75 px-0">
+              <span class="navbar-brand text-white"><i class="fa-solid fa-house"></i></span>
+              <span class="navbar-text title text-white">
+                <a href="dashboard.html">PROCUREMENT ADMIN PORTAL</a>
+              </span>
+              <button class="navbar-toggler text-white ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fa-solid fa-bars"></i>
+              </button>
+            </div>
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse w-50 h-100" id="navbarSupportedContent">
+              <!-- Right links -->
+              <ul class="navbar-nav w-100 h-100 mt-lg-0" id="firstList">
+                <li class="nav-item dropdown text-center mx-lg-1 h-100" id="navItem">
+                    <a class="nav-link dropdown-toggle text-white mt-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    </a>
+                    <!-- Dropdown menu -->
+                    <ul class="dropdown-menu dropdown-menu-center border p-1" aria-labelledby="navbarDropdown" style="width:99%">
+                      <li>
+                        <button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#newSupplier">
+                          Create New Supplier
+                        </button>
+                      </li>
+                      <li>
+                        <a href="bid-quotes.html" class="dropdown-item btn" type="button">
+                          Create New RFQ
+                        </a>
+                      </li>
+                    </ul>
+                </li>
+                <li class="nav-item text-center mx-lg-1" id="navItem">
+                    <a href="notification.html" class="nav-link text-white mt-2">
+                    <i class="fas fa-bell fa-lg mb-1"></i>
+                    </a>
+                </li>
+                <li class="nav-item dropdown text-center mx-lg-1 text-white" id="navItem">
+                    <a class="nav-link dropdown-toggle text-white mt-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                    <i class="fa-solid fa-user"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="navbarDropdown" style="width:99%;">
+                    <li>
+                      <a href="a" class="dropdown-item">Admin Profile</a>
+                    </li>
+                    <li>
+                      <a href="#newAdminInfo" class="dropdown-item" data-bs-toggle="modal">
+                        Add New Admin User
+                      </a>
+                    </li>
+                    <li>
+                      <a href="login.html" class="dropdown-item">Sign out</a>
+                    </li>
+                    </ul>
+                </li>
+              </ul>
+            </div>
+            <!-- Collapsible wrapper -->
+          </div>
+          <!-- Container wrapper -->
+        </div>
+    </div>
+
+    <div class="secondNav">
+        <div id="container-fluid">
+          <div class="navbar navbar-expand-sm navbar-info m-0 p-0">
+            <button class="navbar-toggler text-white ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#sideNav"
+                aria-controls="sideNav" aria-expanded="false" aria-label="Toggle side navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+          <!-- <div class="container"> -->
+            <div class="collapse navbar-collapse" id="sideNav">
+              <ul class="navbar-nav w-100 mx-3 justify-content-between" id="sideNav">
+                <li class="nav-item">
+                  <a href="index.html" class="nav-link fw-bold">SITE ADMINISTRATION</a>
+                </li>
+                <li class="nav-item">
+                  <a href="vendors.html" class="nav-link fw-bold">VENDORS</a>
+                </li>
+                <li class="nav-item">
+                  <a href="requisitions.html" class="nav-link fw-bold">PURCHASE REQUISITIONS</a>
+                </li>
+                <li class="nav-item">
+                  <a href="request-for-quotes.html" class="nav-link fw-bold active">REQUEST FOR QUOTES</a>
+                </li>
+                <li class="nav-item">
+                  <a href="purchase-order.html" class="nav-link fw-bold">PURCHASE ORDER</a>
+                </li>
+                <li class="nav-item">
+                  <a href="purchase-document.html" class="nav-link fw-bold">PURCHASE DOCUMENT</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="container-fluid main-content">
+        <div class="container-fluid my-3 header">
+          <div class="float-end">
+            <button class="btn btn-sm shadow fw-bold px-3" id="whiteButton"
+             data-bs-toggle="modal" data-bs-target="#commentsModal">
+              View Comment
+            </button>
+          </div>
+          <div class="d-flex">
+            <p class="mb-0 fw-bold head">
+              Vendor:
+              <span class="fw-normal">XYZ Corporations</span>
+            </p>
+            <p class="mb-0 fw-bold mx-3 head">
+              Address:
+              <span class="fw-normal">Ikeja, Lagos, Nigeria</span>
+            </p>
+          </div>
+          
+        </div>
+        <div class="container-fluid">
+          <div class="my-4">
+            <div class="row">
+              <button class="btn" id="collapseButton" data-bs-toggle="collapse" data-bs-target="#generalQuote">
+                <i class="fa-solid fa-caret-down float-end my-2"></i>
+                <p class="text-start fw-bold my-2">General</p>
+              </button>
+              <div class="collapse border-bottom border-start border-end" id="generalQuote">
+                <div class="">
+                  <div class="table-responsive m-4">
+                    <table class="table rfq-table table-sm table-bordered">
+                      <tbody>
+                        <tr>
+                          <td class="fw-bold" width="50%">
+                              RFQ No: <span></span>
+                          </td>
+                          <td class="table-active fw-bold">
+                              Office Use: <span></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p class="fw-bold mb-2">
+                              Date: <span>20/03/2022</span>
+                            </p>
+                            <p class="fw-bold mb-0">
+                              Requester: <span></span>
+                            </p>
+                          </td>
+                          <td>
+                            <p class="fw-bold mb-2">
+                              PO Number: <span></span>
+                            </p>
+                            <p class="fw-bold mb-0">
+                              Date: <span></span>
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p class="fw-bold mb-2">
+                              Unit: <span></span>
+                            </p>
+                            <p class="fw-bold mb-0">
+                              Department: <span></span>
+                            </p>
+                          </td>
+                          <td>
+                            <p class="fw-bold mb-2">
+                              Requisition Status:
+                              <select name="" id="" class="mt-1">
+                                <option value="" class="">New</option>
+                                <option value="" class="">Pending</option>
+                                <option value="" class="">Submitted</option>
+                                <option value="" class="">Compared</option>
+                                <option value="" class="">Finalized</option>
+                              </select>
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="mb-3">
+                  <div class="rfq-desc mx-4">
+                    <p class="table-active fw-bold mb-0 p-1" style="background-color:#ccc;">Description</p>
+                    <textarea name="" id="" class="w-100 p-0" style="height:100px;"></textarea>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <button class="btn my-2" id="collapseButton" data-bs-toggle="collapse" data-bs-target="#rfqLine">
+                <i class="fa-solid fa-caret-down float-end my-2"></i>
+                <p class="text-start fw-bold my-2">RFQ Line</p>
+              </button>
+              <div class="collapse border-bottom border-start border-end" id="rfqLine">
+                <div class="">
+                  <div class="table-responsive m-4">
+                    <div class="table-editable" id="table">
+                    <table class="table table-sm table-bordered rfq-table">
+                      <thead>
+                        <tr class="table-active">
+                          <td scope="col">QUANTITY</td>
+                          <td scope="col">UNIT COST</td>
+                          <td scope="col">TOTAL COST</td>
+                          <td scope="col">DESCRIPTION OF SERVICE OR MATERIAL</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td scope="col" contenteditable="true"></td>
+                          <td scope="col" contenteditable="true"></td>
+                          <td scope="col" contenteditable="true"></td>
+                          <td scope="col" contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                          <td scope="col" contenteditable="true"></td>
+                          <td scope="col" contenteditable="true"></td>
+                          <td scope="col" contenteditable="true"></td>
+                          <td scope="col" contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                          <td scope="col" contenteditable="true"></td>
+                          <td scope="col" contenteditable="true"></td>
+                          <td scope="col" contenteditable="true"></td>
+                          <td scope="col" contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                          <td scope="col" contenteditable="true"></td>
+                          <td scope="col" contenteditable="true"></td>
+                          <td scope="col" contenteditable="true"></td>
+                          <td scope="col" contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                          <td scope="col" contenteditable="true"></td>
+                          <td scope="col" contenteditable="true"></td>
+                          <td scope="col" contenteditable="true"></td>
+                          <td scope="col" contenteditable="true"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <button class="btn" id="collapseButton" data-bs-toggle="collapse" data-bs-target="#uploads">
+                  <i class="fa-solid fa-caret-down float-end my-2"></i>
+                  <p class="text-start fw-bold my-2">Uploads</p>
+                </button>
+                <div class="border-bottom border-start border-end" id="uploads">
+                  <div class="my-4">
+                    <div class="upload-area mx-3 my-2">
+                      <div class="float-end p-3">
+                        <span class="size">5.7MB</span>
+                      </div>
+                      <div class="d-flex mx-3 p-3">
+                        <i class="fa-solid fa-file"></i>
+                        <div class="details">
+                          <p class="name mb-0">
+                            Document.pdf . <span>preview</span>
+                         </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="upload-area mx-3 my-2">
+                        <div class="float-end p-3">
+                          <span class="size">5.7MB</span>
+                        </div>
+                        <div class="d-flex mx-3 p-3">
+                          <i class="fa-solid fa-file-image"></i>
+                          <div class="details">
+                            <p class="name mb-0">
+                              Image.jpeg . <span>preview</span>
+                            </p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="upload-area mx-3">
+                        <div class="float-end p-3">
+                          <span class="size">5.7MB</span>
+                        </div>
+                        <div class="d-flex mx-3 p-3">
+                          <i class="fa-solid fa-file"></i>
+                          <div class="details">
+                            <p class="name mb-0">
+                              Document.docs . <span>preview</span>
+                            </p>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="row float-end">
+            <div class="vendor-close mb-3">
+            <a href="nominated-vendors.html" class="btn btn-sm px-3"
+            id="rgbButton" type="button">
+              Close
+            </a>
+            </div>
+          </div>
+        </div>
+        
+    </div>
+
+    <div class="container" id="modals">
+      <div class="modal" id="newSupplier" tabindex="-1" aria-labelledby="new-supplier" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-body supplier-modal">
+              <div class="mx-4">
+              <div class="row mb-3 mt-5">
+                <h5 class="text-center">Add New Supplier</h5>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Company Name</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Company Email Address</label>
+                  <input type="email" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Phone Number</label>
+                  <input type="tel" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">TIN/VAT NUMBER</label>
+                  <input type="text" class="form-control" placeholder="Enter TIN/VAT Number">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-12 mb-3">
+                  <label for="">Address</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Suppliers Bank Country</label>
+                  <select name="" class="form-select">
+                    <option value=""></option>
+                  </select>
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">BANK NAME</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Account Number</label>
+                  <input type="number" class="form-control" placeholder="00******00">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">BIC/Swift Code</label>
+                  <input type="text" class="form-control" placeholder="Enter BIC/Swift Code">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-12 mb-3">
+                  <label for="">Upload relevant documents</label>
+                  <div class="text-center border bg-white">
+                    <input type="file" class="form-control">
+                    <i class="fa-solid fa-cloud-arrow-up mt-3 mb-2"></i>
+                    <p>Drag Files here to attach them or</p>
+                    <button class="shadow-sm mb-2" type="button">ADD FILE</button>
+                  </div>
+                </div>
+              </div>
+              <div class="button">
+                <div class="float-end mt-3 mb-5">
+                  <a href="vendors.html" class="btn btn-sm shadow mx-3" type="button" id="rgbButton">
+                    Submit
+                  </a>
+                  <button class="btn btn-sm shadow" type="button" id="rgbButton" data-bs-toggle="modal" data-bs-target="#userSupplier">
+                    Add User for Supplier
+                  </button>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="userSupplier" tabindex="-1" aria-labelledby="new-supplier" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-body supplier-modal">
+                <div class="mx-4" style="margin-bottom:300px;">
+                <div class="row mt-5 mb-3">
+                  <h5 class="text-center">Add User Information</h5>
+                </div>
+                <div class="form-row d-flex justify-content-between">
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">First Name</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">Last Name</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-row d-flex justify-content-between">
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">Email Address</label>
+                    <input type="email" class="form-control">
+                  </div>
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">Phone Number</label>
+                    <input type="tel" class="form-control">
+                  </div>
+                </div>
+                <div class="form-row d-flex justify-content-between">
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">Supplier ID</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">Address</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-row d-flex justify-content-between">
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">Job Title</label>
+                    <input type="number" class="form-control">
+                  </div>
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">Gender</label>
+                    <select name="" class="form-select">
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row d-flex justify-content-between">
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">Default Password</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">User Role</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="button mb-5">
+                  <div class="float-end mt-3 mb-5">
+                    <button class="btn btn-sm shadow mx-3" type="button" id="rgbButton" data-bs-toggle="modal" data-bs-target="#successModal">
+                      Submit
+                    </button>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="modal" id="newAdminInfo" tabindex="-1" aria-labelledby="new-supplier" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-body supplier-modal">
+                <div class="mx-4" style="margin-bottom:300px;">
+                <div class="row mt-5 mb-3">
+                  <h5 class="text-center">Add Admin Information</h5>
+                </div>
+                <div class="form-row d-flex justify-content-between">
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">First Name</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">Last Name</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-row d-flex justify-content-between">
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">Email Address</label>
+                    <input type="email" class="form-control">
+                  </div>
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">Phone Number</label>
+                    <input type="tel" class="form-control">
+                  </div>
+                </div>
+                <div class="form-row d-flex justify-content-between">
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">Company ID</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">Address</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-row d-flex justify-content-between">
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">Job Title</label>
+                    <input type="number" class="form-control">
+                  </div>
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">Gender</label>
+                    <select name="" class="form-select">
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row d-flex justify-content-between">
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">Default Password</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                    <label for="">User Role</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="button mb-5">
+                  <div class="float-end mt-3 mb-5">
+                    <button class="btn btn-sm shadow mx-3" type="button" id="rgbButton" data-bs-toggle="modal" data-bs-target="#successAdminModal">
+                      Submit
+                    </button>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="modal" id="successModal" tabindex="-1" aria-labelledby="success" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered success-modal" style="width:300px">
+            <div class="modal-content">
+              <div class="modal-body text-center">
+                <img src="assets/img/icons8-checkmark-48-green.png" alt="">
+                <p class="check fw-bold">Congratulations</p>
+                <p class="fw-bold">Supplier Profile Created</p>
+                <a href="vendors.html" class="btn btn-sm" id="rgbButton">
+                  Continue
+                </a>
+              </div>
+            </div>
+          </div>
+      </div>
+  
+      <div class="modal" id="successAdminModal" tabindex="-1" aria-labelledby="success" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered success-modal" style="width:300px">
+          <div class="modal-content">
+          <div class="modal-body text-center">
+              <img src="assets/img/icons8-checkmark-48-green.png" alt="">
+              <p class="check fw-bold">Congratulations</p>
+              <p class="fw-bold">Admin Profile Created</p>
+              <a href="admin-information.html" class="btn btn-sm" id="rgbButton">
+                Continue
+              </a>
+          </div>
+          </div>
+      </div>
+      </div>
+
+      <div class="modal" id="successRfqModal">
+          <div class="modal-dialog modal-dialog-centered" style="width:200px">
+            <div class="modal-content">
+              <div class="modal-body text-center">
+                <img src="assets/img/icons8-checkmark-48-green.png" alt="">
+                <p class="check fw-bold">Congratulation</p>
+                <p class="fw-bold">RFQ Invitation Sent</p>
+                <a href="request-for-quotes.html" class="btn btn-sm" id="rgbButton" type="button">
+                  Continue
+                </a>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="modal" id="commentsModal" tabindex="-1" aria-labelledby="modal-title">
+      <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      <div class="modal-body d-block">
+          <h5 class="fw-bold mx-2">Comments Feed</h5>
+          <div class="my-4 py-3 mx-2">
+          <div class="row">
+              <h6 class="user fw-bold">Jane Cooper</h6>
+              <p class="content">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Quasi impedit consequuntur veritatis aperiam reprehenderit molestiae magni enim perferendis quae inventore,
+              quia labore, consectetur hic saepe deserunt possimus esse vero ipsum?
+              </p>
+              <p class="date-time mb-0">
+              02 January, 2022
+              <span>12:45PM</span>
+              </p>
+          </div>
+          <hr>
+          <div class="row">
+              <h6 class="user fw-bold">Devon Lane</h6>
+              <p class="content">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Quasi impedit consequuntur veritatis aperiam reprehenderit molestiae magni enim perferendis quae inventore,
+              quia labore, consectetur hic saepe deserunt possimus esse vero ipsum?
+              </p>
+              <p class="date-time mb-0">
+              02 January, 2022
+              <span>12:45PM</span>
+              </p>
+          </div>
+          <hr>
+          <div class="row">
+              <h6 class="user fw-bold">Eleanor Pena</h6>
+              <p class="content">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Quasi impedit consequuntur veritatis aperiam reprehenderit molestiae magni enim perferendis quae inventore,
+              quia labore, consectetur hic saepe deserunt possimus esse vero ipsum?
+              </p>
+              <p class="date-time mb-0">
+              02 January, 2022
+              <span>12:45PM</span>
+              </p>
+          </div>
+          <hr>
+          <div class="row">
+              <h6 class="user fw-bold">Savannah Nguyen</h6>
+              <p class="content">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Quasi impedit consequuntur veritatis aperiam reprehenderit molestiae magni enim perferendis quae inventore,
+              quia labore, consectetur hic saepe deserunt possimus esse vero ipsum?
+              </p>
+              <p class="date-time mb-0">
+              02 January, 2022
+              <span>12:45PM</span>
+              </p>
+          </div>
+          <hr>
+          <div class="text-end pt-2">
+              <button class="btn shadow" id="rgbButton" type="button" data-bs-dismiss="modal">Back</button>
+          </div>
+          </div>
+      </div>
+      </div>
+      </div>
+      </div>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0"></script>
+ </body>
+</html>

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="admin.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+     <script src="https://kit.fontawesome.com/75706b52ac.js" crossorigin="anonymous"></script>
+    <title>Vendor Admin Portal</title>
+  </head>
+  <body>
+    <div class="navbar-header">
+        <div class="navbar navbar-expand-sm navbar-dark h-100 py-0" id="firstNav">
+          <!-- Container wrapper -->
+          <div class="container-fluid h-100">
+            <div class="container-fluid w-75 px-0">
+              <span class="navbar-brand text-white"><i class="fa-solid fa-house"></i></span>
+              <span class="navbar-text title text-white">
+                <a href="dashboard.html">PROCUREMENT ADMIN PORTAL</a>
+              </span>
+              <button class="navbar-toggler text-white ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fa-solid fa-bars"></i>
+              </button>
+            </div>
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse w-50 h-100" id="navbarSupportedContent">
+              <!-- Right links -->
+              <ul class="navbar-nav w-100 h-100 mt-lg-0" id="firstList">
+                <li class="nav-item dropdown text-center mx-lg-1 h-100" id="navItem">
+                    <a class="nav-link dropdown-toggle text-white mt-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    </a>
+                    <!-- Dropdown menu -->
+                    <ul class="dropdown-menu dropdown-menu-center border p-1" aria-labelledby="navbarDropdown" style="width:99%">
+                      <li>
+                        <button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#newSupplier">
+                          Create New Supplier
+                        </button>
+                      </li>
+                      <li>
+                        <a href="bid-quotes.html" class="dropdown-item btn" type="button">
+                          Create New RFQ
+                        </a>
+                      </li>
+                    </ul>
+                </li>
+                <li class="nav-item text-center mx-lg-1" id="navItem">
+                    <a href="notification.html" class="nav-link text-white mt-2">
+                    <i class="fas fa-bell fa-lg mb-1"></i>
+                    </a>
+                </li>
+                <li class="nav-item dropdown text-center mx-lg-1 text-white" id="navItem">
+                    <a class="nav-link dropdown-toggle text-white mt-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                    <i class="fa-solid fa-user"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="navbarDropdown" style="width:99%;">
+                    <li>
+                      <a href="admin-information.html" class="dropdown-item">Admin Profile</a>
+                    </li>
+                    <li>
+                      <a href="#newAdminInfo" class="dropdown-item" data-bs-toggle="modal">
+                        Add New Admin User
+                      </a>
+                    </li>
+                    <li>
+                      <a href="login.html" class="dropdown-item">Sign out</a>
+                    </li>
+                    </ul>
+                </li>
+              </ul>
+            </div>
+            <!-- Collapsible wrapper -->
+          </div>
+          <!-- Container wrapper -->
+        </div>
+    </div>
+
+    <div class="secondNav">
+        <div id="container-fluid">
+          <div class="navbar navbar-expand-sm navbar-info m-0 p-0">
+            <button class="navbar-toggler text-white ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#sideNav"
+                aria-controls="sideNav" aria-expanded="false" aria-label="Toggle side navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+          <!-- <div class="container"> -->
+            <div class="collapse navbar-collapse" id="sideNav">
+              <ul class="navbar-nav w-100 mx-3 justify-content-between" id="sideNav">
+                <li class="nav-item">
+                  <a href="index.html" class="nav-link fw-bold active">SITE ADMINISTRATION</a>
+                </li>
+                <li class="nav-item">
+                  <a href="vendors.html" class="nav-link fw-bold">VENDORS</a>
+                </li>
+                <li class="nav-item">
+                  <a href="requisitions.html" class="nav-link fw-bold">PURCHASE REQUISITIONS</a>
+                </li>
+                <li class="nav-item">
+                  <a href="request-for-quotes.html" class="nav-link fw-bold">REQUEST FOR QUOTES</a>
+                </li>
+                <li class="nav-item">
+                  <a href="purchase-order.html" class="nav-link fw-bold">PURCHASE ORDER</a>
+                </li>
+                <li class="nav-item">
+                  <a href="purchase-document.html" class="nav-link fw-bold">PURCHASE DOCUMENT</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="container-fluid main-content">
+      <div class="row">
+        <ul class="nav tabs mt-2 mb-0" id="usersTab" role="tablist">
+            <li class="nav-item fw-bold mx-3">
+              <a class="nav-link" id="admin-tab" data-bs-toggle="tab" href="#adminUsers" role="tab" aria-controls="admin-users" aria-selected="false">
+                Admin Users
+              </a>
+            </li>
+            <li class="nav-item fw-bold mx-3">
+              <a class="nav-link active" id="role-tab" data-bs-toggle="tab" href="#userRole" role="tab" aria-controls="user-role" aria-selected="true">
+                User Roles
+              </a>
+            </li>
+            <li class="nav-item fw-bold mx-3">
+              <a class="nav-link" id="permission-tab" data-bs-toggle="tab" href="#userPermission" role="tab" aria-controls="user-permission" aria-selected="false">
+                User Permissions
+              </a>
+            </li>
+        </ul>
+      </div>
+    </div>
+    <div class="container-fluid my-4">
+        <div class="tab-content" id="users-content">
+            <div class="tab-pane fade show" id="adminUsers" role="tabpanel" aria-labelledby="admin-tab">
+                <div class="responsive-table">
+                  <table class="table table-sm table-bordered">
+                    <thead>
+                      <tr class="table-active">
+                        <td scope="col">ADMIN USERS</td>
+                        <td scope="col">USER ROLE</td>
+                        <td scope="col">USER TYPE</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td scope="col">Oluwaseyi Yetunde</td>
+                        <td scope="col">Basic</td>
+                        <td scope="col">Vendor</td>
+                      </tr>
+                      <tr>
+                        <td scope="col">Alabi Tobi</td>
+                        <td scope="col">Approver</td>
+                        <td scope="col">Vendor</td>
+                      </tr>
+                      <tr>
+                        <td scope="col">Oluwaseyi Yetunde</td>
+                        <td scope="col">Uploader</td>
+                        <td scope="col">Employee</td>
+                      </tr>
+                      <tr>
+                        <td scope="col">Alabi Tobi</td>
+                        <td scope="col">Sys Admin</td>
+                        <td scope="col">Vendor</td>
+                      </tr>
+                      <tr>
+                        <td scope="col">Alabi Tobi</td>
+                        <td scope="col">Manager</td>
+                        <td scope="col">Employee</td>
+                      </tr>
+                      <tr>
+                        <td scope="col">Alabi Tobi</td>
+                        <td scope="col">Lead</td>
+                        <td scope="col">Employee</td>
+                      </tr>
+                      <tr>
+                        <td scope="col">Oluwaseyi Yetunde</td>
+                        <td scope="col">Supervisor</td>
+                        <td scope="col">Vendor</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+            <div class="tab-pane fade show active" id="userRole" role="tabpanel" aria-labelledby="role-tab">
+              <div class="responsive-table">
+                <table class="table table-sm table-bordered">
+                  <thead>
+                    <tr class="table-active">
+                      <td scope="col">ROLE ID</td>
+                      <td scope="col">ROLE DESCRIPTION</td>
+                      <td scope="col">USER TYPE</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="col">Basic</td>
+                      <td scope="col">Basic User</td>
+                      <td scope="col">Vendor</td>
+                    </tr>
+                    <tr>
+                      <td scope="col">Approver</td>
+                      <td scope="col">An approver of all results</td>
+                      <td scope="col">Vendor</td>
+                    </tr>
+                    <tr>
+                      <td scope="col">Uploader</td>
+                      <td scope="col">Uploader of Documents</td>
+                      <td scope="col">Vendor</td>
+                    </tr>
+                    <tr>
+                      <td scope="col">Sys Admin</td>
+                      <td scope="col">System Administrator</td>
+                      <td scope="col">Employee</td>
+                    </tr>
+                    <tr>
+                      <td scope="col">Manager</td>
+                      <td scope="col">To Approve</td>
+                      <td scope="col">Employee</td>
+                    </tr>
+                    <tr>
+                      <td scope="col">Lead</td>
+                      <td scope="col">Super User</td>
+                      <td scope="col">Employee</td>
+                    </tr>
+                    <tr>
+                      <td scope="col">Supervisor</td>
+                      <td scope="col">To review</td>
+                      <td scope="col">Vendor</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="tab-pane fade show" id="userPermission" role="tabpanel" aria-labelledby="permission-tab">
+              <div class="row">
+                <div class="container-fluid d-flex my-3">
+                  <div class="col-sm-3 col-md-3 col-lg-3 d-flex">
+                    <p class="filter mb-0 col-5">Permission Set:</p>
+                    <select class=" col-7">
+                    <option value="basic">Basic</option>
+                    <option value="approver">Approver</option>
+                    <option value="uploader">Uploader</option>
+                    <option value="sys-admin">Sys Admin</option>
+                    <option value="manager">Manager</option>
+                    <option value="lead">Lead</option>
+                    <option value="supervisor">Supervisor</option>
+                    </select>
+                  </div>
+                  <div class="mx-4">
+                    <button class="btn shadow" type="button" id="whiteButton" data-bs-toggle="modal" data-bs-target="#importPermission">
+                      Import Permission Set
+                    </button>
+                    <button class="btn shadow mx-3" type="button" id="whiteButton" data-bs-toggle="modal" data-bs-target="#exportPermission">
+                      Export Permission Set
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="responsive-table">
+                <table class="table table-sm table-bordered">
+                  <thead>
+                    <tr class="table-active">
+                      <td scope="col">PAGES</td>
+                      <td scope="col">READ PERMISSION</td>
+                      <td scope="col">INSERT PERMISSION</td>
+                      <td scope="col">MODIFY PERMISSION</td>
+                      <td scope="col">DELETE PERMISSION</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="col">Request for quotes</td>
+                      <td scope="col">YES</td>
+                      <td scope="col">NO</td>
+                      <td scope="col">NO</td>
+                      <td scope="col">NO</td>
+                    </tr>
+                    <tr>
+                      <td scope="col">Purchase order</td>
+                      <td scope="col">YES</td>
+                      <td scope="col">NO</td>
+                      <td scope="col">NO</td>
+                      <td scope="col">NO</td>
+                    </tr>
+                    <tr>
+                      <td scope="col">Waybill</td>
+                      <td scope="col">YES</td>
+                      <td scope="col">NO</td>
+                      <td scope="col">NO</td>
+                      <td scope="col">NO</td>
+                    </tr>
+                    <tr>
+                      <td scope="col">Invoice</td>
+                      <td scope="col">YES</td>
+                      <td scope="col">NO</td>
+                      <td scope="col">NO</td>
+                      <td scope="col">INDIRECT</td>
+                    </tr>
+                    <tr>
+                      <td scope="col">Issue Resolution</td>
+                      <td scope="col">YES</td>
+                      <td scope="col">INDIRECT</td>
+                      <td scope="col"></td>
+                      <td scope="col">YES</td>
+                    </tr>
+                    <tr>
+                      <td scope="col">Payment Receipt</td>
+                      <td scope="col">YES</td>
+                      <td scope="col">NO</td>
+                      <td scope="col">NO</td>
+                      <td scope="col">INDIRECT</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="modals">
+      <div class="modal" id="newSupplier" tabindex="-1" aria-labelledby="new-supplier" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-body supplier-modal">
+              <div class="mx-4">
+              <div class="row mb-3 mt-5">
+                <h5 class="text-center">Add New Supplier</h5>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Company Name</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Company Email Address</label>
+                  <input type="email" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Phone Number</label>
+                  <input type="tel" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">TIN/VAT NUMBER</label>
+                  <input type="text" class="form-control" placeholder="Enter TIN/VAT Number">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-12 mb-3">
+                  <label for="">Address</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Suppliers Bank Country</label>
+                  <select name="" class="form-select">
+                    <option value=""></option>
+                  </select>
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">BANK NAME</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Account Number</label>
+                  <input type="number" class="form-control" placeholder="00******00">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">BIC/Swift Code</label>
+                  <input type="text" class="form-control" placeholder="Enter BIC/Swift Code">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-12 mb-3">
+                  <label for="">Upload relevant documents</label>
+                  <div class="text-center border bg-white">
+                    <input type="file" class="form-control">
+                    <i class="fa-solid fa-cloud-arrow-up mt-3 mb-2"></i>
+                    <p>Drag Files here to attach them or</p>
+                    <button class="shadow-sm mb-2" type="button">ADD FILE</button>
+                  </div>
+                </div>
+              </div>
+              <div class="button">
+                <div class="float-end mt-3 mb-5">
+                  <a href="vendors.html" class="btn btn-sm shadow mx-3" type="button" id="rgbButton">
+                    Submit
+                  </a>
+                  <button class="btn btn-sm shadow" type="button" id="rgbButton" data-bs-toggle="modal" data-bs-target="#userSupplier">
+                    Add User for Supplier
+                  </button>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="userSupplier" tabindex="-1" aria-labelledby="new-supplier" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-body supplier-modal">
+              <div class="mx-4" style="margin-bottom:300px;">
+              <div class="row mt-5 mb-3">
+                <h5 class="text-center">Add User Information</h5>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">First Name</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Last Name</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Email Address</label>
+                  <input type="email" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Phone Number</label>
+                  <input type="tel" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Supplier ID</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Address</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Job Title</label>
+                  <input type="number" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Gender</label>
+                  <select name="" class="form-select">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Default Password</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">User Role</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="button mb-5">
+                <div class="float-end mt-3 mb-5">
+                  <button class="btn btn-sm shadow mx-3" type="button" id="rgbButton" data-bs-toggle="modal" data-bs-target="#successModal">
+                    Submit
+                  </button>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="newAdminInfo" tabindex="-1" aria-labelledby="new-supplier" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-body supplier-modal">
+              <div class="mx-4" style="margin-bottom:300px;">
+              <div class="row mt-5 mb-3">
+                <h5 class="text-center">Add Admin Information</h5>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">First Name</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Last Name</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Email Address</label>
+                  <input type="email" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Phone Number</label>
+                  <input type="tel" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Company ID</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Address</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Job Title</label>
+                  <input type="number" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Gender</label>
+                  <select name="" class="form-select">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row d-flex justify-content-between">
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">Default Password</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 mb-3">
+                  <label for="">User Role</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="button mb-5">
+                <div class="float-end mt-3 mb-5">
+                  <button class="btn btn-sm shadow mx-3" type="button" id="rgbButton" data-bs-toggle="modal" data-bs-target="#successAdminModal">
+                    Submit
+                  </button>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="importPermission" tabindex="-1" aria-labelledby="import-permission" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="width:400px;">
+          <div class="modal-content">
+            <div class="modal-body text-center" style="border-bottom:1px dashed #000;">
+              <div class="">
+                <form action="">
+                  <input type="file" class="form-control">
+                  <img src="assets/web/cloud-upload-50.png" alt="">
+                  <p class="mb-1 mt-2">Select a file or drag and drop here</p>
+                  <p class="small mb-1" style="color:#ccc;">
+                    .xlsx, .xlsm or .xml, file size no more than 10MB
+                  </p>
+                  <div class="">
+                    <button class="btn btn-sm mx-1" id="whiteButton" type="file-input">
+                      Select File
+                    </button>
+                    <button class="btn btn-sm shadow fw-bold" id="whiteButton">
+                      Download Template
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer" style="background-color:#dadada;">
+              <div class="float-end">
+                <button class="btn btn-sm shadow" id="whiteButton" data-bs-dismiss="modal">
+                  Cancel
+                </button>
+                <button class="btn btn-sm shadow" id="rgbButton" data-bs-toggle="tab" data-bs-target="#assignPermission">
+                  Assign Permission Set
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="exportPermission" tabindex="-1" aria-labelledby="export-permission" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered success-modal" style="width:300px">
+          <div class="modal-content">
+            <div class="modal-body text-center">
+              <img src="assets/img/icons8-checkmark-48-green.png" alt="">
+              <p class="check fw-bold">Export Successful</p>
+              <button class="btn btn-sm" id="rgbButton" data-bs-dismiss="modal">
+                Continue
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="successModal" tabindex="-1" aria-labelledby="success" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered success-modal" style="width:300px">
+          <div class="modal-content">
+            <div class="modal-body text-center">
+              <img src="assets/img/icons8-checkmark-48-green.png" alt="">
+              <p class="check fw-bold">Congratulations</p>
+              <p class="fw-bold">Supplier Profile Created</p>
+              <a href="vendors.html" class="btn btn-sm" id="rgbButton">
+                Continue
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="successAdminModal" tabindex="-1" aria-labelledby="success" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered success-modal" style="width:300px">
+          <div class="modal-content">
+            <div class="modal-body text-center">
+              <img src="assets/img/icons8-checkmark-48-green.png" alt="">
+              <p class="check fw-bold">Congratulations</p>
+              <p class="fw-bold">Admin Profile Created</p>
+              <a href="admin-information.html" class="btn btn-sm" id="rgbButton">
+                Continue
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
+     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0"></script>
+  </body>
+</html>
