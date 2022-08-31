@@ -201,54 +201,55 @@
               </div>
             </div>
             <div class="row">
-              <button class="btn my-2" id="collapseButton" data-bs-toggle="collapse" data-bs-target="#rfqLine">
+              <button class="btn my-2" id="collapseButton" data-bs-toggle="collapse" data-bs-target="#rfqLine2">
                 <i class="fa-solid fa-caret-down float-end my-2"></i>
                 <p class="text-start fw-bold my-2">RFQ Line</p>
               </button>
-              <div class="collapse border-bottom border-start border-end" id="rfqLine">
+              <div class="collapse border-bottom border-start border-end" id="rfqLine2">
                 <div class="">
+                  <!--<form action="" class="d-flex mx-4" autocomplete="off"
+                      onsubmit="onFormSubmit()">
+                        <input type="text" name="quantity" class="" id="quantity">
+                        <input type="text" name="unitCost" class="mx-2" id="unitCost">
+                        <input type="text" name="totalCost" class="" id="totalCost">
+                        <input type="text" name="description" class="" id="description">
+                        <div class="form-action--button">
+                          <input type="submit" value="submit" class="">
+                        </div>
+                  </form>-->
                   <div class="table-responsive m-4">
                     <div class="table-editable" id="table">
-                    <table class="table table-sm table-bordered rfq-table">
+                      
+                    <table class="table table-sm table-bordered" id="rfqLine" style="background:#fff;">
                       <thead>
-                        <tr class="table-active">
-                          <td scope="col">QUANTITY</td>
-                          <td scope="col">UNIT COST</td>
-                          <td scope="col">TOTAL COST</td>
-                          <td scope="col">DESCRIPTION OF SERVICE OR MATERIAL</td>
+                        <tr  class="text-center" style="background: #f8f8f8;">
+                          <form action="" class="" autocomplete="off"
+                           onsubmit="onFormSubmit()">
+                           <td class="">
+                            <input type="text" name="quantity" class="" id="quantity">
+                           </td>
+                           <td class="">
+                            <input type="text" name="unitCost" class="mx-2" id="unitCost">
+                           </td>
+                           <td class="">
+                            <input type="text" name="totalCost" class="" id="totalCost">
+                           </td>
+                           <td class="">
+                            <input type="text" name="description" class="" id="description">
+                           </td>
+                           <td class="">
+                            <input type="submit" value="submit" class="">
+                           </td>
+                        </tr>
+                        <tr>
+                          <td class="">QUANTITY</td>
+                          <td class="">UNIT COST</td>
+                          <td class="">TOTAL COST</td>
+                          <td class="">SECRIPTION OF SERVICE OR MATERIAL</td>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td scope="col" contenteditable="true"></td>
-                          <td scope="col" contenteditable="true"></td>
-                          <td scope="col" contenteditable="true"></td>
-                          <td scope="col" contenteditable="true"></td>
-                        </tr>
-                        <tr>
-                          <td scope="col" contenteditable="true"></td>
-                          <td scope="col" contenteditable="true"></td>
-                          <td scope="col" contenteditable="true"></td>
-                          <td scope="col" contenteditable="true"></td>
-                        </tr>
-                        <tr>
-                          <td scope="col" contenteditable="true"></td>
-                          <td scope="col" contenteditable="true"></td>
-                          <td scope="col" contenteditable="true"></td>
-                          <td scope="col" contenteditable="true"></td>
-                        </tr>
-                        <tr>
-                          <td scope="col" contenteditable="true"></td>
-                          <td scope="col" contenteditable="true"></td>
-                          <td scope="col" contenteditable="true"></td>
-                          <td scope="col" contenteditable="true"></td>
-                        </tr>
-                        <tr>
-                          <td scope="col" contenteditable="true"></td>
-                          <td scope="col" contenteditable="true"></td>
-                          <td scope="col" contenteditable="true"></td>
-                          <td scope="col" contenteditable="true"></td>
-                        </tr>
+      
                       </tbody>
                     </table>
                     </div>
@@ -605,7 +606,7 @@
 
 
 
-
+    <script src="assets/js/form.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0"></script>
